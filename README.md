@@ -12,7 +12,8 @@ To enable the fix you need to add this line at the beginning of your  project:
 import 'package:lehttp_overrides/lehttp_overrides.dart';
 
 void main() {
-  if (Platform.isAndroid) {
+  final androidSDKVersion =  25;
+  if (Platform.isAndroid  && androidSDKVersion <= 25 ) {
     HttpOverrides.global = LEHttpOverrides();
   }
   runApp(const MyApp());
@@ -21,8 +22,6 @@ void main() {
 
 This works if you are using **ISRG Root X1** certificate path
 by adding **ISRG Root X1** CA to certificate store.
-
-This is harmless on Android > 7.1.1 because the system already has it.
 
 An optional parameter of the constructor `allowExpiredDSTX3` (defaults: false)
 allows to accept as valid the **DST Root CA X3** expired certificate.

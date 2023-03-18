@@ -1,3 +1,7 @@
+## 1.0.3
+* Upgrade dio package to 5.0.3
+* Upgrade sdk: '>=2.18.1 <3.0.0'
+
 ## 1.0.2
 
 * Added option to allow expired **DST X3** validation, defaults to false
