@@ -1,8 +1,11 @@
 # lehttp_overrides
 
-A Flutter package to resolve Let's Encrypt SSL certificate problems with Android 7.1.1 and below
+A Flutter package to resolve Let's Encrypt SSL certificate problems with Android 7.1.1 and below.
 
-More information [here (Italian)](https://www.netfarm.it/blog/blog-netfarm-10/post/let-s-encrypt-fix-flutter-dopo-30-settembre-2021-200)
+``` Note: This doesn't affect devices with android OS above 7.1.1 ```
+
+
+More information [here](https://www.tomsguide.com/news/internet-disconnect-sept-30)
 
 ## Getting Started
 
@@ -12,14 +15,12 @@ To enable the fix you need to add this line at the beginning of your  project:
 import 'package:lehttp_overrides/lehttp_overrides.dart';
 
 void main() {
-  final androidSDKVersion =  25;
-  if (Platform.isAndroid  && androidSDKVersion <= 25 ) {
+  if (Platform.isAndroid ) {
     HttpOverrides.global = LEHttpOverrides();
   }
   runApp(const MyApp());
 }
 ```
-
 This works if you are using **ISRG Root X1** certificate path
 by adding **ISRG Root X1** CA to certificate store.
 
